@@ -3,7 +3,7 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: rgb(115, 0, 255);
-    color: white;
+    background-color: rgba(139, 167, 144, 0.9);
+    color: black;
     text-align: center;
   }
