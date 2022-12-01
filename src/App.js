@@ -5,6 +5,7 @@ import {Footer} from './components/Footer'
 import { Navbar } from './components/Navbar';
 import { Products } from './components/Products';
 import { FrontPageImage } from './components/FrontPageImage';
+import { Form } from "./components/Form";
 
 
 
@@ -13,7 +14,11 @@ function App() {
   return (
     <>      
         
-          <Navbar />
+      <Navbar />  
+      <FrontPageImage/>
+      <Home/>
+      <Form/>
+      <Footer/>
 
           <Routes>
             <Route path="/" element/>
@@ -21,9 +26,6 @@ function App() {
             <Route path="/about" element={<About /> }/>
           </Routes>
 
-          <FrontPageImage/>
-      <Home/>
-      <Footer/>
     </>
   );
 }

@@ -1,3 +1,46 @@
-img{
+
+.image-container{
+  position: relative;
+  top: 0;
+  left: 0;
+
+}
+
+.background{
   width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+
+
+.frontpage-image{
+  width: 50%;
+  position: absolute;
+  top: 10%;
+  left: 2%;
+  border-radius: 10px;
+  background-color: red;
+}
+
+.frontpage-text{
+  font-family: 'Tangerine', serif;
+  position: absolute;
+  left: 55%;
+  top: 30%;
+  font-size: 7.5em;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  color: black;
+}
+
+
+.popular-products{
+  font-family: serif;
+  position: absolute;
+  left: 20%;
+  top: 120%;
+  font-size: 4.5em;
 }
