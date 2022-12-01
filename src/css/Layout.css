@@ -24,8 +24,7 @@
  }
 
  a:hover{
-    background-color: white;
-    
+    text-decoration: underline;
  }
  
  .container{
