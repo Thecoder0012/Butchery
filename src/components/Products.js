@@ -26,13 +26,14 @@ export const Products = () => {
       <><h1>Herunder kan du se en oversigt over alle vores produkter</h1>
       
       <div className="img-wrapper">
-        <div className="together"><div><img src={image} /> <div className="description">I am a description</div></div></div>
-        <div className="together"><div><img src={image} /> <div className="description">I am a description</div></div></div>
-        <div className="together"><div><img src={image} /> <div className="description">I am a description</div></div></div>
+        <div className="together-image-text"><div><img src={image} /> <div className="description">I am a description
+        </div></div></div>
+        <div className="together-image-text"><div><img src={image} /> <div className="description">I am a description</div></div></div>
+        <div className="together-image-text"><div><img src={image} /> <div className="description">I am a description</div></div></div>
         
-        <div className="together"><div><img src={image} /> <div className="description">I am a description</div></div></div>
-        <div className="together"><div><img src={image} /> <div className="description">I am a description</div></div></div>
-        <div className="together"><div><img src={image} /> <div className="description">I am a description</div></div></div>
+        <div className="together-image-text"><div><img src={image} /> <div className="description">I am a description</div></div></div>
+        <div className="together-image-text"><div><img src={image} /> <div className="description">I am a description</div></div></div>
+        <div className="together-image-text"><div><img src={image} /> <div className="description">I am a description</div></div></div>
       </div></>
     );
 }
