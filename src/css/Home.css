@@ -24,6 +24,7 @@
     position: absolute;
     height: 60%;
     left: 30%;
+    top: 25%;
     padding: 1.8em;
     width: 40%;
     display: flex;
@@ -54,14 +55,10 @@
     cursor: pointer;
   }
 
-  .inputs label{
-
-  }
-
   .submit{
     background-color: rgb(121, 34, 121);
     color: white;
-    font-size: 1em;
+    font-size: 14px;
   }
 
   .submit:hover{
