@@ -7,24 +7,6 @@ import "../css/Products.css";
 
 
 export const Products = () => {
-    const images = [
-        {
-          id: 1,
-          image: Beef
-        },
-        {
-          id: 2,
-          image: Calf
-        },
-        {
-          id: 3,
-          image: Chicken
-        },
-        {
-          id: 4,
-          image: Lamb
-        }
-      ];
 
     return (
 

@@ -15,8 +15,7 @@ h1{
     align-content: flex-start;
   }
   
-img {
-   
+.img-wrapper img{
   height: 200px;
   border-radius: 20px;
   margin-left: 20%;
