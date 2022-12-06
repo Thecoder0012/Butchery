@@ -2,8 +2,27 @@ body{
   background-color: honeydew;
 }
 
-h1{
+.product-text h1{
+  font-family: Open Sans;
+  font-weight: 600;
+  text-transform: capitalize;
+  text-align: center;
+  color: black;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.product-text h2{
+  font-family: Open Sans;
+    font-size: 17px;
     text-align: center;
+    color: dimgrey;
+    line-height: 2.1em;
+
+}
+
+.last-h2 {
+  margin-bottom: 1em;
 }
 
 .img-wrapper {
