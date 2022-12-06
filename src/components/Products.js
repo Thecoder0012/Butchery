@@ -1,7 +1,8 @@
 import React from 'react'
-import image from "../images/frontpage.jpeg"
-import image1 from "../images/background.jpeg"
-import image2 from "../images/frontpage.jpeg"
+import Beef from "../images/Beef.jpg"
+import Calf from "../images/Calf.webp"
+import Chicken from "../images/Chicken.jpg"
+import Lamb from "../images/Lamb.jpg"
 import "../css/Products.css";
 
 
@@ -9,15 +10,19 @@ export const Products = () => {
     const images = [
         {
           id: 1,
-          image: image
+          image: Beef
         },
         {
           id: 2,
-          image: image1
+          image: Calf
         },
         {
           id: 3,
-          image: image2
+          image: Chicken
+        },
+        {
+          id: 4,
+          image: Lamb
         }
       ];
 
@@ -26,14 +31,13 @@ export const Products = () => {
       <><h1>Herunder kan du se en oversigt over alle vores produkter</h1>
       
       <div className="img-wrapper">
-        <div className="together-image-text"><div><img src={image} /> <div className="description">I am a description
-        </div></div></div>
-        <div className="together-image-text"><div><img src={image} /> <div className="description">I am a description</div></div></div>
-        <div className="together-image-text"><div><img src={image} /> <div className="description">I am a description</div></div></div>
+        <div className="together-image-text"><div><img src={Beef} /> <div className="description"><p>I am a description </p> </div></div></div>
+        <div className="together-image-text"><div><img src={Calf} /> <div className="description"><p>I am a description </p></div></div></div>
+        <div className="together-image-text"><div><img src={Chicken} /> <div className="description"><p>I am a description </p></div></div></div>
         
-        <div className="together-image-text"><div><img src={image} /> <div className="description">I am a description</div></div></div>
-        <div className="together-image-text"><div><img src={image} /> <div className="description">I am a description</div></div></div>
-        <div className="together-image-text"><div><img src={image} /> <div className="description">I am a description</div></div></div>
+        <div className="together-image-text"><div><img src={Lamb} /> <div className="description"><p>I am a description </p></div></div></div>
+        <div className="together-image-text"><div><img src={Beef} /> <div className="description"><p>I am a description </p></div></div></div>
+        <div className="together-image-text"><div><img src={Beef} /> <div className="description"><p>I am a description </p></div></div></div>
       </div></>
     );
 }
