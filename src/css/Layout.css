@@ -18,7 +18,7 @@
  
  a{
     text-decoration: none;
-    color: black;
+    color: white;
     border-radius: 10px;
     font-weight: 100;
 
@@ -34,7 +34,7 @@
    font-weight: 400;
    padding: 2%;
    justify-content: center;
-   background-color: rgba(139, 167, 144, 0.9);
+   background-color: black;
    width: 100%;
  }
 

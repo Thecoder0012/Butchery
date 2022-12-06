@@ -6,38 +6,43 @@ import Welcome from "../images/velkommen.jpg"
 import Beef from "../images/Beef1.webp"
 import Calf from "../images/Calf1.jpg"
 import Lamb from "../images/Lamb.jpg"
+import Video from "../videos/MeatVideo.mp4"
 
 const Home = () => {
 
-    
-    const images = [
-        "https://www.incimages.com/uploaded_files/image/1920x1080/getty_80116649_344560.jpg",
-        "https://www.incimages.com/uploaded_files/image/1920x1080/getty_80116649_344560.jpg",
-        "https://www.incimages.com/uploaded_files/image/1920x1080/getty_80116649_344560.jpg",
-    ];
 
     return (
-        <Slide>
-            <div className="each-slide-effect">
-                <div style={{ 'backgroundImage': `url(${Welcome})` }}>
+        <>
+        
+            
+                 <div className='main'>
+                    <div className="overlay"></div>
+                        <video src={Video} autoPlay loop muted />
+                            <div className="content">
+                                <h1>Velkommen hos Slagteren</h1>
+                                <p>Se Vores Mest Populære Produkter↴</p>
+                            </div>
                 </div>
-            </div>
-            <div className="each-slide-effect">
+            
+            
+            <Slide>
+            <div className="each-slide-effect-img">
                 <div style={{ 'backgroundImage': `url(${Lamb})` }}>
                     <span>Den Mest Populære</span>
                 </div>
             </div>
-            <div className="each-slide-effect">
+            <div className="each-slide-effect-img">
                 <div style={{ 'backgroundImage': `url(${Calf})` }}>
                     <span>Den Stærke Andenplads</span>
                 </div>
             </div>
-            <div className="each-slide-effect">
+            <div className="each-slide-effect-img">
                 <div style={{ 'backgroundImage': `url(${Beef})` }}>
                     <span>Den Tredje i Rækken</span>
                 </div>
             </div>
         </Slide>
+        </>
     );
 };
 
