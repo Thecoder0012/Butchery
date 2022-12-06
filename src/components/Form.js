@@ -1,11 +1,27 @@
 import "../css/Home.css";
+import React, { useEffect, useState } from 'react'
+
+
 
 export const Form = () =>  {
+
+  const [product,setProduct] = useState([])
+
+  useEffect(() => {
+    async function getData(){
+        const res = await fetch('http://localhost:8080/api/v1/product');
+        const data = await res.json();
+        setProduct(data)
+}
+        
+getData()
+},[]);
+
 
   return (
     <div>
 
-        <form  className="order-form" method="POST">
+        <form className="order-form" method="POST">
         <h1>Opret din bestilling</h1>
 
      <div className="inputs">
@@ -20,11 +36,15 @@ export const Form = () =>  {
 
 
         <label>Vælg produkt</label>
-        <select name="products">
-            <option value="1">Kylling</option>
-            <option value="2">Oksekød</option>
-            <option value="3">Kalvekød</option>
-        </select>
+        <select key={product.id} name="products">
+          <option selected> </option>
+        {
+          product.map((product,index) => (
+              <option value={product.id} key={index}>{product.name} {product.weight} gram</option>
+          ))
+        }
+       </select>
+
 
         <label>Antal</label>
         <input type={"number"} name="quantityOfProducts" />

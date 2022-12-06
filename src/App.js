@@ -13,23 +13,16 @@ import { Form } from "./components/Form";
 function App() {
 return (
 <>
-
-  <Navbar />
-  
- 
+  <Navbar /> 
 
       <Routes>
-        <Route path="/" element={[<FrontPageImage />, <Home />, <Form />]} />
+        <Route path="/" element={[<FrontPageImage />, <Home />]} />
+        <Route path="/order" element={<Form/>} />
         <Route path="/products" element={<Products /> }/>
         <Route path="/about" element={<About /> }/>
       </Routes>
 
       <Footer />
-
-
-
-
-
 </>
 );
 }
