@@ -16,7 +16,7 @@ return (
   <Navbar /> 
 
       <Routes>
-        <Route path="/" element={[<FrontPageImage />, <Home />]} />
+        <Route path="/" element={[ <Home />]} />
         <Route path="/order" element={<Form/>} />
         <Route path="/products" element={<Products /> }/>
         <Route path="/about" element={<About /> }/>
