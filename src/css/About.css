@@ -1,10 +1,23 @@
 .about-section {
     padding: 50px;
     text-align: center;
-    background-color: rgba(139, 167, 144, 0.9);
-    color: white;
+    color: black;
+    line-height: 2.0;
   }
 
+  .mark{
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+  }
+
+  .about-section h1{
+    margin-top: -4%;
+
+  }
+
+
+  
 
   
 
