@@ -1,11 +1,15 @@
-import "../css/Home.css";
+import "../css/Order.css";
 import React, { useEffect, useState } from 'react'
+
 
 
 
 export const Form = () =>  {
 
   const [product,setProduct] = useState([])
+  const [date,setDate] = useState(new Date());
+
+  console.log(pro);
 
   useEffect(() => {
     async function getData(){
@@ -32,7 +36,7 @@ getData()
         <input type={"text"} name="customerName" />
 
         <label>Afhentningstid</label>
-        <input type={"datetime-local"} name="pickUpTime" />
+        <input step="1" value={date} onChange={(e)=>{setDate(e.target.value)}} type={"datetime-local"} name="pickUpTime" />
 
 
         <label>Vælg produkt</label>
@@ -40,7 +44,7 @@ getData()
           <option selected> </option>
         {
           product.map((product,index) => (
-              <option value={product.id} key={index}>{product.name} {product.weight} gram</option>
+              <option onChange={(e)=>{setPro(e.target.value)}} value={product} key={product.id}>{product.name}</option>
           ))
         }
        </select>
