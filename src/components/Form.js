@@ -9,7 +9,7 @@ export const Form = () =>  {
   const [product,setProduct] = useState([])
   const [date,setDate] = useState(new Date());
 
-  console.log(pro);
+  
 
   useEffect(() => {
     async function getData(){
@@ -44,7 +44,7 @@ getData()
           <option selected> </option>
         {
           product.map((product,index) => (
-              <option onChange={(e)=>{setPro(e.target.value)}} value={product} key={product.id}>{product.name}</option>
+              <option value={product} key={product.id}>{product.name}</option>
           ))
         }
        </select>

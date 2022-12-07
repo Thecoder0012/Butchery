@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Beef from "../images/Beef.jpg"
 import Calf from "../images/Calf.webp"
 import Chicken from "../images/Chicken.jpg"
@@ -7,6 +7,19 @@ import "../css/Products.css";
 
 
 export const Products = () => {
+  
+  const [product,setProduct] = useState([])
+  
+  
+  useEffect(() => {
+    async function getData(){
+        const res = await fetch('http://localhost:8080/api/v1/product');
+        const data = await res.json();
+        setProduct(data)
+}
+        
+getData()
+},[]);
 
     return (
 
@@ -22,9 +35,23 @@ export const Products = () => {
       </div>
       
       <div className="img-wrapper">
-        <div className="together-image-text"><div><img src={Beef} /> <div className="description"><p>Vores øksekød </p> </div></div></div>
-        <div className="together-image-text"><div><img src={Calf} /> <div className="description"><p>Vores kalvekød </p></div></div></div>
-        <div className="together-image-text"><div><img src={Chicken} /> <div className="description"><p>Vores kylling </p></div></div></div>
+        <div className="together-image-text"><div><img src={Beef} /> <div className="description" key={product.id} name="products">{
+          product.map((product,index) => (
+              <p value={product} key={index}>Navn: {product.name}</p>
+          ))
+        }
+
+         </div></div></div>
+        <div className="together-image-text"><div><img src={Calf} /> <div className="description" key={product.id} name="products">{
+        product.map((product,index) => (
+              <p value={product} key={index}>Navn: {product.name}</p>
+          ))
+        }</div></div></div>
+        <div className="together-image-text"><div><img src={Chicken} /> <div className="description" key={product.id} name="products">{
+        product.map((product,index) => (
+              <p value={product} key={index}>Navn: {product.name}</p>
+          ))
+        }</div></div></div>
         
         <div className="together-image-text"><div><img src={Lamb} /> <div className="description"><p>Vores lammekød </p></div></div></div>
         <div className="together-image-text"><div><img src={Beef} /> <div className="description"><p>Vores ....</p></div></div></div>
