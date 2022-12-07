@@ -2,7 +2,7 @@ import React from 'react';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 import "../css/Home.css";
-import Beef from "../images/Beef1.webp"
+import Beef from "../images/Beef2.jpg"
 import Calf from "../images/Calf1.jpg"
 import Lamb from "../images/Lamb.jpg"
 import Video from "../videos/MeatVideo.mp4"
