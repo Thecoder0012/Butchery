@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom"
-import '../css/Layout.css';
+import '../css/Navbar.css';
 
 
 export const Navbar = () => {
@@ -14,6 +14,7 @@ return (
         <li> <Link to="/order">Bestil</Link> </li>
         <li> <Link to="/products">Produkter</Link> </li>
         <li> <Link to="/about">Om os</Link> </li>
+        <li> <Link to="/admin">Admin</Link> </li>
     </ul>
 
     <div className="login">

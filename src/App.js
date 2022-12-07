@@ -6,6 +6,7 @@ import { Navbar } from './components/Navbar';
 import { Products } from './components/Products';
 import { FrontPageImage } from './components/FrontPageImage';
 import { Form } from "./components/Form";
+import { Admin } from "./components/Admin";
 
 
 
@@ -20,6 +21,7 @@ return (
         <Route path="/order" element={<Form/>} />
         <Route path="/products" element={<Products /> }/>
         <Route path="/about" element={<About /> }/>
+        <Route path="/admin" element={<Admin /> }/>
       </Routes>
 
       <Footer />

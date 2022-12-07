@@ -1,21 +1,71 @@
+.body-about{
+  background-color: black;
+}
+
 .about-section {
-    padding: 50px;
-    text-align: center;
-    color: black;
-    line-height: 2.0;
+  width: 100%;
   }
 
-  .mark{
-    max-width: 100%;
-    height: auto;
-    border-radius: 50%;
+.about-image {
+  width: 450px;
+  height: 360px;
+  border-radius: 50%;
   }
 
-  .about-section h1{
-    margin-top: -4%;
-
+.about-text {
+    width: 550px;
+    margin-bottom: 5em;
   }
 
+.main{
+  width: 1130px;
+  max-width: 95%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}  
+
+.about-text h1{
+  color: white;
+    font-size: 45px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+.about-text h2{
+  color: white;
+    font-size: 22px;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.about-text h3{
+  color: white;
+    font-size: 21px;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    margin-top: 12px;
+    letter-spacing: 2px;
+}
+
+.about-text h4{
+  color: white;
+  font-size: 18px;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+  margin-top: 12px;
+  letter-spacing: 2px;
+}
+
+.about-text p{
+  color: rgb(219, 213, 213);
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
 
   
 
