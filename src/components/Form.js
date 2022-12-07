@@ -25,6 +25,7 @@ getData()
 
 
 const createOrder = async (e) => {
+  e.preventDefault();
   const url = 'http://localhost:8080/api/v1/order';
   const options = {
       method: 'POST',
