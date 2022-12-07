@@ -1,0 +1,55 @@
+.order-form{
+    position: absolute;
+    height: 70%;
+    left: 30%;
+    top: 17%;
+    padding: 1em;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+  }
+
+ 
+  .inputs input,select{
+    width: 100%;
+    height: 10%;
+    margin: 2% 0 0 0;
+    border:0.5px solid black;
+    border-radius: 5px;
+  }
+
+ 
+  .inputs select:focus,input:focus{
+    border: 2.5px solid rgb(0, 157, 224);
+    outline: none;
+  }
+
+  .order-form h1{
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 2em;
+  }
+
+  .inputs input{
+    padding: 1.5em;
+    margin-bottom: 2em;
+  }
+
+  .inputs select:hover, input[type="submit"]:hover{
+    cursor: pointer;
+  }
+
+  .submit{
+    background-color: darkslategrey;
+    color: white;
+    position: relative;
+    bottom: 2%;
+    font-size: 14px;
+  }
+
+  .submit:hover{
+    background-color: rgb(33, 60, 60);
+    color: white;
+  }
+  

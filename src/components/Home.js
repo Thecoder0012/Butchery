@@ -2,7 +2,6 @@ import React from 'react';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 import "../css/Home.css";
-import Welcome from "../images/velkommen.jpg"
 import Beef from "../images/Beef1.webp"
 import Calf from "../images/Calf1.jpg"
 import Lamb from "../images/Lamb.jpg"
@@ -15,7 +14,7 @@ const Home = () => {
         <>
         
             
-                 <div className='main'>
+                 <div className='main-video'>
                     <div className="overlay"></div>
                         <video src={Video} autoPlay loop muted />
                             <div className="content">

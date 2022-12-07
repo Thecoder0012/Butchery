@@ -1,16 +1,18 @@
 import React from "react"
 import "../css/About.css";
-import mark from "../images/mark.jpg"
+import ButcherImage from "../images/Butcher.jpg"
 
 
 
 export const About = () => {
 
     return (
-        <div>
-            <div className="about-section"> 
+        <div className="body-about">
+            <section className="about-section">
+                <div className="main">
+            <img className="about-image" src={ButcherImage} alt="Butcher" />
+        <div className="about-text">
   <h1> Hvem er vi?</h1>
-  <img className="mark" src={mark} alt="About Image" />
 
 
   
@@ -33,8 +35,10 @@ export const About = () => {
             <p>Du kan også fange os på tlf. nr.: 123456789 alle hverdage fra 09-15 og weekender fra 10-13.</p>
             <p>Vi glæder os til at høre fra dig!</p>
             <p>Bedste hilsner, dit slagter team hos Slagteren.</p>
-  
-  </div>
+            
+            </div>
+            </div>
+  </section>
                 </div>
                 
 

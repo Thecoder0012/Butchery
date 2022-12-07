@@ -10,7 +10,7 @@ export const Products = () => {
 
     return (
 
-      <>
+      <div className="body-products">
       <div className="product-text">
         <h1>slagteren's produkter</h1>
         <h2>Her på siden kan du se vores udvalg af kød, vi sørger altid for at alt er frisk slagtet!</h2>
@@ -29,7 +29,7 @@ export const Products = () => {
         <div className="together-image-text"><div><img src={Lamb} /> <div className="description"><p>Vores lammekød </p></div></div></div>
         <div className="together-image-text"><div><img src={Beef} /> <div className="description"><p>Vores ....</p></div></div></div>
         <div className="together-image-text"><div><img src={Beef} /> <div className="description"><p>Vores ....</p></div></div></div>
-      </div></>
+      </div></div>
     );
 }
 
