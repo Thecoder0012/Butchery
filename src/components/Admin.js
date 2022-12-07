@@ -20,29 +20,29 @@ export const Admin = () =>  {
 
     return (
         <div>
-            <div>
-                <h1>Orders</h1>
+            <div className="title">
+                <h1>Bestillinger</h1>
             </div>
 
-            <div>
+            <div className="products-container">
                 <table>
                     <thead>
                         <tr>
-                            <th>orderId</th>
-                            <th>customerName</th>
-                            <th>pickUpTime</th>
-                            <th>quantityOfProducts</th>
-                            <th>product</th>
+                            <th>Bestillings-nummer</th>
+                            <th>Kundenavn</th>
+                            <th>Produkt-navn</th>
+                            <th>Afhentningstid</th>
+                            <th>Antal</th>
                         </tr>
                     </thead>
                     {orders.map((order, i) => (
-                        <tbody key={i}>
+                        <tbody className="products" key={i}>
                             <tr>
                                 <td>{order.id}</td>
                                 <td>{order.customerName}</td>
+                                <td>{order.product.name}</td>
                                 <td>{order.pickUpTime}</td>
                                 <td>{order.quantityOfProducts}</td>
-                                <td>{order.product.name}</td>
 
                             </tr>
                         </tbody>

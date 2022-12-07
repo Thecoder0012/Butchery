@@ -1,0 +1,18 @@
+
+.title{
+    text-align: center;
+}
+.products-container{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    position: relative;
+    margin: 1% 30%;
+}
+
+.products-container th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+
+}
