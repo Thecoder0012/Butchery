@@ -6,10 +6,12 @@ import React, { useEffect, useState } from 'react'
 
 export const Form = () =>  {
 
-  const [product,setProduct] = useState([])
-  const [date,setDate] = useState(new Date());
+const [product,setProduct] = useState([])
 
-  console.log(pro);
+const [customerName, setCustomerName] = useState();
+const [pickUpTime, setPickUpTime] = useState(new Date());
+const [quantityOfProducts, setQuantity] = useState();
+const [orderProduct, setOrderProduct] = useState();
 
   useEffect(() => {
     async function getData(){
@@ -20,6 +22,27 @@ export const Form = () =>  {
         
 getData()
 },[]);
+
+
+const createOrder = async (e) => {
+  const url = 'http://localhost:8080/api/v1/order';
+  const options = {
+      method: 'POST',
+      headers: {'Accept' : 'application/json',
+      'Content-Type':'application/json'},
+      body: JSON.stringify({
+      'customerName' : customerName,
+      'pickUpTime': pickUpTime,
+      'quantityOfProducts' : quantityOfProducts,
+      'product' : orderProduct
+      })
+  
+  };
+  const response = await fetch(url,options);
+  return response.json();
+  
+  }
+
 
 
   return (
@@ -33,27 +56,27 @@ getData()
 
           
         <label>Kunde navn</label>
-        <input type={"text"} name="customerName" />
+        <input value={customerName} onChange={(e)=>{setCustomerName(e.target.value)}} type={"text"} name="customerName" />
 
         <label>Afhentningstid</label>
-        <input step="1" value={date} onChange={(e)=>{setDate(e.target.value)}} type={"datetime-local"} name="pickUpTime" />
+        <input step="1" value={pickUpTime} onChange={(e)=>{setPickUpTime(e.target.value)}} type={"datetime-local"} name="pickUpTime" />
 
 
         <label>Vælg produkt</label>
-        <select key={product.id} name="products">
+        <select onChange={(e)=>{setOrderProduct(e.target.value)}} key={product.id} name="products">
           <option selected> </option>
         {
           product.map((product,index) => (
-              <option onChange={(e)=>{setPro(e.target.value)}} value={product} key={product.id}>{product.name}</option>
+              <option value={product.id}  key={index}>{product.name}</option>
           ))
         }
        </select>
 
 
         <label>Antal</label>
-        <input type={"number"} name="quantityOfProducts" />
+        <input value={quantityOfProducts} onChange={(e)=>{setQuantity(e.target.value)}} type={"number"} name="quantityOfProducts" />
 
-        <input className="submit" type="submit" value={"Bestil"}/>
+        <input className="submit" onClick={createOrder}  type="submit" value={"Bestil"}/>
         </div>
         </form>
     </div>
