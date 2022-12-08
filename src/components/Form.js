@@ -59,9 +59,10 @@ const createOrder = async (e) => {
 
         <label>Vælg produkt</label>
         <select onChange={(e)=>{setOrderProduct(e.target.value)}} name="products">
+        <option selected>- -</option>
         {
           product.map((product) => (
-              <option value={product.id}  key={product.id}>{product.name}</option>
+              <option value={product.id}  key={product.id}>{product.name} {product.weight} gram</option>
           ))
         }
     </select>
