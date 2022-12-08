@@ -21,6 +21,16 @@ export const Products = () => {
 getData()
 },[]);
 
+
+    const arr = {
+      newArray: []
+    };
+      arr.newArray = product.map((product,index) => (
+          <p value={product} key={index}>Navn: {product.name}<br></br> {product.weight}<br></br> {product.price}</p>
+
+      ))
+    
+
     return (
 
       <div className="body-products">
@@ -35,11 +45,8 @@ getData()
       </div>
       
       <div className="img-wrapper">
-        <div className="together-image-text"><div><img src={Beef} /> <div className="description" key={product.id} name="products">{
-          product.map((product,index) => (
-              <p value={product} key={index}>Navn: {product.name}</p>
-          ))
-        }
+        <div className="together-image-text"><div><img src={Beef} /> <div className="description" key={product.id} name="products">
+        <p>{arr.newArray[1]}</p>
 
          </div></div></div>
         <div className="together-image-text"><div><img src={Calf} /> <div className="description" key={product.id} name="products">{
