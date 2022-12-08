@@ -12,6 +12,8 @@ const [pickUpTime, setPickUpTime] = useState(new Date());
 const [quantityOfProducts, setQuantity] = useState();
 const [orderProduct, setOrderProduct] = useState(0);
 
+console.log(orderProduct);
+
 useEffect(() => {
     async function getProducts(){
         const res = await fetch('http://localhost:8080/api/v1/product');
@@ -38,9 +40,8 @@ const createOrder = async (e) => {
       } 
     })
   };
-  const response = await fetch(url,options);
-  return response.json();
-  
+  await fetch(url,options);
+  window.location.reload(false);
   }
 
 
