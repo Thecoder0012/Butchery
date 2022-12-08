@@ -56,6 +56,16 @@ export const Admin = () =>  {
         
         }
 
+    const deleteProduct = async (id) => {
+        const response = await fetch(productUrl + '/' + id, {
+            method: "DELETE"
+        })
+    console.log('deleted');
+    window.location.reload(false);
+
+    
+    }
+
 
 
     return (
@@ -143,7 +153,13 @@ export const Admin = () =>  {
                                 <td>{product.price} kr</td>
                                 <td>{product.weight} gram</td>
                                 <td>
-                                    <button className="delete">Slet</button>
+                                    <button className="delete" onClick={() => {
+                                        products.filter((productNested) => {
+                                            if(product.id === productNested.id){
+                                                deleteProduct(productNested.id)
+                                            }
+                                        })
+                                    }}>Slet</button>
                                     <button className="update">Opdater</button>
                                     </td>
 
