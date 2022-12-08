@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Beef from "../images/Beef.jpg"
 import Calf from "../images/Calf.webp"
-import Chicken from "../images/Chicken.jpg"
+import Chicken1 from "../images/Chicken1.webp"
 import Lamb from "../images/Lamb.jpg"
+import Goose1 from "../images/Goose1.webp"
+import Duck from "../images/Duck.jpg"
 import "../css/Products.css";
 
 
@@ -22,11 +24,11 @@ getData()
 },[]);
 
 
-    const arr = {
+    const productArr = {
       newArray: []
     };
-      arr.newArray = product.map((product,index) => (
-          <p value={product} key={index}>Navn: {product.name}<br></br> {product.weight}<br></br> {product.price}</p>
+    productArr.newArray = product.map((product,index) => (
+          <p value={product} key={index}>Navn: {product.name}<br></br> Vægt: {product.weight} gram<br></br> Pris: {product.price} Kr.</p>
 
       ))
     
@@ -46,23 +48,28 @@ getData()
       
       <div className="img-wrapper">
         <div className="together-image-text"><div><img src={Beef} /> <div className="description" key={product.id} name="products">
-        <p>{arr.newArray[1]}</p>
-
+          <p>{productArr.newArray[0]}</p>
          </div></div></div>
+
         <div className="together-image-text"><div><img src={Calf} /> <div className="description" key={product.id} name="products">{
-        product.map((product,index) => (
-              <p value={product} key={index}>Navn: {product.name}</p>
-          ))
+          <p>{productArr.newArray[1]}</p>
         }</div></div></div>
-        <div className="together-image-text"><div><img src={Chicken} /> <div className="description" key={product.id} name="products">{
-        product.map((product,index) => (
-              <p value={product} key={index}>Navn: {product.name}</p>
-          ))
+
+        <div className="together-image-text"><div><img src={Chicken1} /> <div className="description" key={product.id} name="products">{
+          <p>{productArr.newArray[2]}</p>
         }</div></div></div>
         
-        <div className="together-image-text"><div><img src={Lamb} /> <div className="description"><p>Vores lammekød </p></div></div></div>
-        <div className="together-image-text"><div><img src={Beef} /> <div className="description"><p>Vores ....</p></div></div></div>
-        <div className="together-image-text"><div><img src={Beef} /> <div className="description"><p>Vores ....</p></div></div></div>
+        <div className="together-image-text"><div><img src={Lamb} /> <div className="description" key={product.id} name="products">
+          <p>{productArr.newArray[3]}</p>
+        </div></div></div>
+
+        <div className="together-image-text"><div><img src={Goose1} /> <div className="description" key={product.id} name="products">
+          <p>{productArr.newArray[4]}</p>
+        </div></div></div>
+
+        <div className="together-image-text"><div><img src={Duck} /> <div className="description" key={product.id} name="products">
+          <p>{productArr.newArray[5]}</p>
+        </div></div></div>
       </div></div>
     );
 }
