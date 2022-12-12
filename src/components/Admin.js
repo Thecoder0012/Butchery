@@ -13,31 +13,38 @@ export const Admin = () =>  {
     const [showOrders,setShowOrders] = useState(false)
     const [showProducts,setShowProducts] = useState(false)
     const [showAdd, setShowAdd] = useState(false)
+    const [showEdit,setShowEdit] = useState(false) 
+
+    const [loading,setLoading] = useState(false)
 
     const [productName, setProductName] = useState()
     const [price,setPrice] = useState()
     const [weight,setWeight] = useState()
+    const [productValue, setProductValue] = useState(0)
 
-    console.log(showAdd);
-    console.log(showProducts);
-    console.log(showOrders);
+    async function getOrders(){
+        const res = await fetch(orderUrl)
+        const data = await res.json()
+        setOrders(data)
+    }
 
+    async function getProducts(){
+        var millisecondsToWait = 2000;
+        setTimeout(function() {
+            // Whatever you want to do after the wait
+        }, millisecondsToWait);
+        const res = await fetch(productUrl)
+        const data = await res.json()
+        setProducts(data)
+        setLoading(false)
+
+    }
     useEffect(() => {
-        async function getOrders(){
-            const res = await fetch(orderUrl)
-            const data = await res.json()
-            setOrders(data)
-        }
-
-        async function getProducts(){
-            const res = await fetch(productUrl)
-            const data = await res.json()
-            setProducts(data)
-        }
-
         getProducts()
         getOrders()
     },[])
+
+
 
     const createProduct = async (e) => {
         e.preventDefault();
@@ -53,31 +60,49 @@ export const Admin = () =>  {
         };
          await fetch(productUrl,options);
          window.location.reload(false);
-        
         }
 
-    const deleteProduct = async (id) => {
-        const response = await fetch(productUrl + '/' + id, {
+    const deleteProductById = async (id) => {
+        if(!window.confirm("Er du sikker på, at du vil slette dette produkt?")){
+            return
+        }
+        await fetch(productUrl + '/' + id, {
             method: "DELETE"
         })
-    console.log('deleted');
-    window.location.reload(false);
+        setLoading(true)
 
-    
+        var sleep = 600;
+        setTimeout(function() {
+            getProducts()
+        }, sleep);        
+}
+
+    const updateProductById = async(product, id) => {
+        const response = await fetch(productUrl + '/' + id, {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(product)
+        })
+        await response.json();
+        getProducts()
+        setShowEdit(false)
+        setShowProducts(true)
     }
 
-
-
     return (
+
         <div>
 
 
             <div className="buttons">
                 <button className="add" onClick={()=>
                     {{
-                        if(showProducts || showOrders){
+                        if(showProducts || showOrders || showEdit){
                             setShowOrders(false)
                             setShowProducts (false);
+                            setShowEdit(false)
                         }
 
                         setShowAdd(!showAdd)
@@ -87,9 +112,11 @@ export const Admin = () =>  {
                         >Tilføj produkt</button>
                 <button onClick={() =>
                     {{
-                        if(showAdd || showOrders){
+                        if(showAdd || showOrders || showEdit){
                             setShowAdd(false)
                             setShowOrders(false)
+                            setShowEdit(false)
+
                         }
                         setShowProducts(!showProducts)
                     }}}
@@ -97,9 +124,11 @@ export const Admin = () =>  {
                     >Produkter</button>
                 <button onClick={ ()=>
                     {{
-                        if(showAdd || showProducts){
+                        if(showAdd || showProducts || showEdit){
                             setShowAdd(false)
-                            setShowProducts(false)   
+                            setShowProducts(false)  
+                            setShowEdit(false)
+ 
                         }
                         setShowOrders(!showOrders)
                     }}}
@@ -127,7 +156,67 @@ export const Admin = () =>  {
         </form>
     </div>
 
-           
+    
+    <div className={showEdit ? "edit-container" : "hide-edit-container"}>
+
+    <div className="title">
+         <h1>Produkter</h1>
+    </div>
+
+<div className="products-container">
+
+
+    <table>
+
+    <thead>
+            <tr>
+                <th>Produkt</th>
+                <th>Pris</th>
+                <th>Vægt</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody className="products">
+
+         {products.map(obj => {
+                if(productValue === obj.id){
+                 
+                    return(
+                    <>
+                    
+                <td><input type={"text"}  placeholder={obj.name} value={productName} onChange={(e)=>{setProductName(e.target.value)}}/></td>
+                <td><input type={"number"} placeholder={obj.price} value={price} onChange={(e)=>{setPrice(e.target.value)}} /></td>
+                <td><input type={"number"} placeholder={obj.weight}  value={weight} onChange={(e)=>{setWeight(e.target.value)}}/></td>
+                <td><input onClick={() =>{
+                   var editedProduct = {
+                        'name' : productName,
+                        'price': price,
+                        'weight' : weight
+                    }
+
+                    if (!editedProduct.name){
+                        editedProduct.name = obj.name;
+                    }
+                    if(!editedProduct.price){
+                        editedProduct.price = obj.price;
+                    }
+                    if(!editedProduct.weight){
+                        editedProduct.weight = obj.weight;
+                    }
+                    updateProductById(editedProduct,obj.id)
+                }} type={"submit"}/></td>
+        </>
+                    )
+            }                           
+    }
+)
+    } 
+    </tbody>
+           </table>
+        </div>
+
+    </div>
             <div className={showProducts ? "admin-product-container" : "hide-admin-products"} >
             <div className="title">
                 <h1>Produkter</h1>
@@ -145,37 +234,49 @@ export const Admin = () =>  {
                             <th>Actions</th>
                         </tr>
                     </thead>
+                    {loading && 
+                    <tbody>
+                        <tr>
+                            <td style={{fontSize:"1.5em" ,textAlign:"center" }} colSpan="5">
+                                Loading...
+                            </td>
+                        </tr>
+                    </tbody>
+            }
+            {!loading && 
+                  <tbody className="products">
                     {products.map((product, i) => (
-                        <tbody className="products" key={i}>
-                            <tr>
+                            <tr key={i}>
                                 <td>{product.id}</td>
                                 <td>{product.name}</td>
                                 <td>{product.price} kr</td>
                                 <td>{product.weight} gram</td>
                                 <td>
                                     <button className="delete" onClick={() => {
-                                        products.filter((productNested) => {
-                                            if(product.id === productNested.id){
-                                                deleteProduct(productNested.id)
+                                        products.filter((productFiltered) => {
+                                            if(product.id === productFiltered.id){
+                                                deleteProductById(productFiltered.id)
                                             }
                                         })
                                     }}>Slet</button>
-                                    <button className="update">Opdater</button>
+                                    <button onClick={() => {
+                                        products.filter((productFiltered => {
+                                            if(product.id === productFiltered.id){
+                                                setProductValue(productFiltered.id);
+                                                setShowEdit(true);
+                                                setShowProducts(false);
+                                            }
+                                        }))
+                                    }} className="update">Opdater</button>
                                     </td>
 
                             </tr>
-                        </tbody>
                     ))}
-
-                    
-
-                    
+                        </tbody>
+                
+                                }
                 </table>
                 </div>
-
-
-
-
         
             </div>        
             <div className={showOrders ? "admin-orders-container" : "hide-admin-orders"} >
@@ -192,6 +293,8 @@ export const Admin = () =>  {
                             <th>Produkt</th>
                             <th>Afhentningstid</th>
                             <th>Antal</th>
+                            <th>Total pris</th>
+
                         </tr>
                     </thead>
                     {orders.map((order, i) => (
@@ -202,7 +305,7 @@ export const Admin = () =>  {
                                 <td>{order.product.name}</td>
                                 <td>{order.pickUpTime}</td>
                                 <td>{order.quantityOfProducts}</td>
-
+                                <td>{order.product.price * order.quantityOfProducts} kr</td>
                             </tr>
                         </tbody>
                     ))}
@@ -217,4 +320,4 @@ export const Admin = () =>  {
         </div>
     )
   
-}
+    }
