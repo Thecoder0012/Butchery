@@ -1,10 +1,15 @@
 import "../css/Admin.css";
 import React, { useEffect, useState } from 'react'
+import useToken from '../components/UseToken';
+import Login from '../components/Login/Login';
 
 
 
-export const Admin = () =>  {
-    let endpointUrl = 'http://localhost:8080/api/v1/order'
+export const Admin = () => {
+    
+
+
+    let endpointUrl = 'http://localhost:4000/api/v1/order'
     const [orders, setOrders] = useState([])
 
 
@@ -18,6 +23,12 @@ export const Admin = () =>  {
         getData()
     },[])
 
+    const { token, setToken } = useToken();
+
+    if(!token) {
+      return <Login setToken={setToken} />
+    } 
+    
     return (
         <div>
             <div className="title">
@@ -54,6 +65,12 @@ export const Admin = () =>  {
                 </table>
             </div>
         </div>
-    )
+    );
+
+   
+
+    
   
 }
+
+export default Admin;
