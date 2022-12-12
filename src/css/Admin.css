@@ -86,6 +86,15 @@ button:hover{
     display: none;
 }
 
+.edit-container{
+    margin-top: 2.5%;
+    display: block;
+}
+
+.hide-edit-container{
+    display: none;
+}
+
 .admin-product-container{
     margin-top: 2.5%;
     display: block;
