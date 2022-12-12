@@ -12,9 +12,11 @@ const [pickUpTime, setPickUpTime] = useState(new Date());
 const [quantityOfProducts, setQuantity] = useState();
 const [orderProduct, setOrderProduct] = useState(0);
 
+console.log(orderProduct);
+
 useEffect(() => {
     async function getProducts(){
-        const res = await fetch('http://localhost:8080/api/v1/product');
+        const res = await fetch('http://localhost:4000/api/v1/product');
         const data = await res.json();
         setProduct(data)
 }
@@ -24,7 +26,7 @@ getProducts()
 
 const createOrder = async (e) => {
   e.preventDefault();
-  const url = 'http://localhost:8080/api/v1/order';
+  const url = 'http://localhost:4000/api/v1/order';
   const options = {
       method: 'POST',
       headers: {'Accept' : 'application/json',
@@ -38,9 +40,8 @@ const createOrder = async (e) => {
       } 
     })
   };
-  const response = await fetch(url,options);
-  return response.json();
-  
+  await fetch(url,options);
+  window.location.reload(false);
   }
 
 
