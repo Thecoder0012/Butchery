@@ -218,7 +218,7 @@ export const Admin = () => {
                         editedProduct.weight = obj.weight;
                     }
                     updateProductById(editedProduct,obj.id)
-                }} type={"submit"}/></td>
+                }} value={"Opdater"} type={"submit"}/></td>
         </>
                     )
             }                           
