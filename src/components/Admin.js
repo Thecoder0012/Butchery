@@ -1,11 +1,16 @@
 import "../css/Admin.css";
 import React, { useEffect, useState } from 'react'
+import useToken from '../components/UseToken';
+import Login from '../components/Login/Login';
 
 
 
-export const Admin = () =>  {
-    let orderUrl = 'http://localhost:8080/api/v1/order'
-    let productUrl = 'http://localhost:8080/api/v1/product'
+export const Admin = () => {
+    
+
+
+    let orderUrl = 'http://localhost:4000/api/v1/order'
+    let productUrl = 'http://localhost:4000/api/v1/product'
 
     const [orders, setOrders] = useState([])
     const [products,setProducts] = useState([])
@@ -91,6 +96,14 @@ export const Admin = () =>  {
         setShowProducts(true)
     }
 
+
+
+    const { token, setToken } = useToken();
+
+    if(!token) {
+      return <Login setToken={setToken} />
+    } 
+    
     return (
 
         <div>
@@ -318,6 +331,12 @@ export const Admin = () =>  {
                 
             </div>
         </div>
-    )
+    );
+
+   
+
+    
   
-    }
+}
+
+export default Admin;

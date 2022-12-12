@@ -14,12 +14,9 @@ return (
         <li> <Link to="/order">Bestil</Link> </li>
         <li> <Link to="/products">Produkter</Link> </li>
         <li> <Link to="/about">Om os</Link> </li>
-        <li> <Link to="/admin">Admin</Link> </li>
     </ul>
 
-    <div className="login">
-        <Link to="/">Login</Link>
-    </div>
+    
 </div>
     )
 }
