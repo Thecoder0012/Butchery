@@ -1,5 +1,5 @@
-# Getting Started with Create React App
-## This project was created with react.js and spring-boot.
+# This project was created with react.js and spring-boot. React.js for the frontend and spring-boot for the backend(rest apis, database).
+This website was created for a butchery to see a list of orders, and to create new products on the website.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
