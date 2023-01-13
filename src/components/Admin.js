@@ -1,7 +1,5 @@
 import "../css/Admin.css";
 import React, { useEffect, useState } from 'react'
-import useToken from '../components/UseToken';
-import Login from '../components/Login/Login';
 
 
 
@@ -9,8 +7,8 @@ export const Admin = () => {
     
 
 
-    let orderUrl = 'http://localhost:4000/api/v1/order'
-    let productUrl = 'http://localhost:4000/api/v1/product'
+    let orderUrl = 'http://localhost:8080/api/v1/order'
+    let productUrl = 'http://localhost:8080/api/v1/product'
 
     const [orders, setOrders] = useState([])
     const [products,setProducts] = useState([])
@@ -34,10 +32,6 @@ export const Admin = () => {
     }
 
     async function getProducts(){
-        var millisecondsToWait = 2000;
-        setTimeout(function() {
-            // Whatever you want to do after the wait
-        }, millisecondsToWait);
         const res = await fetch(productUrl)
         const data = await res.json()
         setProducts(data)
@@ -75,7 +69,6 @@ export const Admin = () => {
             method: "DELETE"
         })
         setLoading(true)
-
         var sleep = 600;
         setTimeout(function() {
             getProducts()
@@ -98,11 +91,7 @@ export const Admin = () => {
 
 
 
-    const { token, setToken } = useToken();
 
-    if(!token) {
-      return <Login setToken={setToken} />
-    } 
     
     return (
 
